@@ -1,4 +1,13 @@
-#N canvas 99 81 593 794 10;
+#N canvas 79 79 593 689 10;
+#X declare -stdpath iemlib -lib iemlib1;
+#X declare -path ../domoTools/gammabs;
+#X declare -path ../domoTools/domonet;
+#X declare -path ../domoTools/notebank;
+#X declare -path ../domoTools/effects;
+#X declare -path ../domoTools/rhythmic;
+#X declare -path ../domoTools/song;
+#X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee
+-path moonlib -path AutoPreset -stdpath AutoPreset;
 #X obj 37 742 *~;
 #X obj 54 680 r ANALOGS;
 #X obj 54 701 route NOEL2;
@@ -168,6 +177,17 @@
 #X obj 36 658 +~;
 #X obj 210 398 apeq AFX-A eq2;
 #X obj 209 485 apdisto AFX-A disto2;
+#N canvas 0 79 450 300 declares 0;
+#X obj 28 57 declare -stdpath iemlib -lib iemlib1;
+#X obj 29 80 declare -path ../domoTools/gammabs;
+#X obj 29 98 declare -path ../domoTools/domonet;
+#X obj 29 116 declare -path ../domoTools/notebank;
+#X obj 29 134 declare -path ../domoTools/effects;
+#X obj 29 153 declare -path ../domoTools/rhythmic;
+#X obj 29 171 declare -path ../domoTools/song;
+#X obj 27 28 declare -stdpath motex -path motex -lib motex -path ggee
+-lib ggee -path moonlib -path AutoPreset -stdpath AutoPreset;
+#X restore 27 9 pd declares;
 #X connect 0 0 5 0;
 #X connect 0 0 5 1;
 #X connect 1 0 2 0;
