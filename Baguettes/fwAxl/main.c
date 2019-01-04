@@ -29,6 +29,7 @@ void setup(void) {
 	analogSelect(2,POT3);
 
 	switchInit();
+	INTCON2bits.RBPU = 0; // enable pullups on PORTB
 	switchSelect(0,SWITCH);
 	switchSelect(1,PEDAL1);
 	switchSelect(2,PEDAL2);

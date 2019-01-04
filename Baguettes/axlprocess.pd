@@ -1,4 +1,5 @@
-#N canvas 6 81 787 573 10;
+#N canvas 507 157 787 573 10;
+#X declare -lib zexy -path zexy;
 #X obj 46 102 * 256;
 #X obj 25 124 +;
 #X obj 114 102 * 256;
@@ -63,6 +64,7 @@
 #X obj 25 220 / 256;
 #X obj 96 211 / 256;
 #X obj 167 211 / 216;
+#X obj 276 51 declare -lib zexy -path zexy;
 #X connect 0 0 1 1;
 #X connect 1 0 6 0;
 #X connect 2 0 3 1;
