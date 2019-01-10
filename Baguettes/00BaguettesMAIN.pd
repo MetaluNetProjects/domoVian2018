@@ -21,7 +21,7 @@
 #X obj 117 85 r TEMPOLED;
 #X obj 25 230 GAMMEKBV /GAMME;
 #X obj 25 294 GAMMEKBV /CHORD;
-#N canvas 906 274 718 455 notebanks 0;
+#N canvas 721 264 718 455 notebanks 0;
 #X obj 18 9 notebank 1 44 CollectionBulle;
 #X obj 18 29 notebank 2 4 CollectionChantsCollectifs;
 #X obj 274 181 s NOTEBANK-LOADTABLES;
@@ -100,7 +100,7 @@
 #X connect 44 0 13 1;
 #X connect 44 0 15 0;
 #X restore 26 371 pd notebanks;
-#N canvas 4 382 625 384 General 0;
+#N canvas 1 372 625 384 General 0;
 #X obj 26 94 getenv HOME;
 #X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
