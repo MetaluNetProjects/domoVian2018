@@ -55,7 +55,7 @@ void loop() {
 
 	if(delayFinished(mainDelay)) // when mainDelay triggers :
 	{
-		delayStart(mainDelay, 5000); 	// re-init mainDelay
+		delayStart(mainDelay, 10000); 	// re-init mainDelay
 		if((cycle&1) == 0) ADXL345Send(&adxl1, 1);
 		else ADXL345Send(&adxl2, 2);
 		if(!switchSend()) analogSend();		// send analog channels that changed
