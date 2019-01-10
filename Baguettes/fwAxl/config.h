@@ -4,7 +4,7 @@
 #define ANALOG_FILTER 4 
 #define ANALOG_THRESHOLD 10
 
-#define I2CMASTER_PORT 1
+#define I2CMASTER_PORT 1 // 0=noir +3V=jaune/vert SCL=K5=bleu SDA=K7=marron
 
 #define SWITCH K11
 #define SWLED K12

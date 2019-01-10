@@ -1,4 +1,4 @@
-#N canvas 28 267 279 436 10;
+#N canvas 28 294 279 436 10;
 #X declare -stdpath iemlib -lib iemlib1;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
@@ -100,14 +100,14 @@
 #X connect 44 0 13 1;
 #X connect 44 0 15 0;
 #X restore 26 371 pd notebanks;
-#N canvas 1 372 625 384 General 0;
+#N canvas 328 349 625 384 General 1;
 #X obj 26 94 getenv HOME;
 #X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X symbolatom 26 115 10 0 0 0 - - -;
 #X obj 245 179 s DATASDIR;
 #X obj 245 96 loadbang;
-#N canvas 184 519 566 300 MASTER 0;
+#N canvas 174 509 566 300 MASTER 1;
 #X obj 176 156 limiter~;
 #X obj 136 157 z~ 64;
 #X obj 134 19 catch~ master;
@@ -194,13 +194,13 @@
 #X connect 24 0 25 0;
 #X connect 25 0 3 0;
 #X restore 24 58 pd General;
-#X obj 117 108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 117 108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 117 129 s LEDROUGE;
-#X obj 155 237 Orchestre ORCH 0;
-#X obj 155 258 Bruits BRUIT 1;
-#X obj 155 278 Chants CHANT 2;
-#X obj 155 298 Percu PERCU 3;
+#X obj 155 237 Orchestre ORCH 1;
+#X obj 155 258 Bruits BRUIT 2;
+#X obj 155 278 Chants CHANT 3;
+#X obj 155 298 Percu PERCU 4;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 3 0 5 0;
