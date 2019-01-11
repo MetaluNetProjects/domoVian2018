@@ -1,4 +1,4 @@
-#N canvas 28 294 279 436 10;
+#N canvas 28 348 292 436 10;
 #X declare -stdpath iemlib -lib iemlib1;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
@@ -18,7 +18,7 @@
 #X obj 102 179 r /BPM;
 #X floatatom 102 203 5 0 0 0 - - -;
 #X obj 25 105 route list;
-#X obj 117 85 r TEMPOLED;
+#X obj 126 61 r TEMPOLED;
 #X obj 25 230 GAMMEKBV /GAMME;
 #X obj 25 294 GAMMEKBV /CHORD;
 #N canvas 721 264 718 455 notebanks 0;
@@ -100,14 +100,14 @@
 #X connect 44 0 13 1;
 #X connect 44 0 15 0;
 #X restore 26 371 pd notebanks;
-#N canvas 328 349 625 384 General 1;
+#N canvas 328 349 625 384 General 0;
 #X obj 26 94 getenv HOME;
 #X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X symbolatom 26 115 10 0 0 0 - - -;
 #X obj 245 179 s DATASDIR;
 #X obj 245 96 loadbang;
-#N canvas 174 509 566 300 MASTER 1;
+#N canvas 174 468 566 300 MASTER 1;
 #X obj 176 156 limiter~;
 #X obj 136 157 z~ 64;
 #X obj 134 19 catch~ master;
@@ -132,12 +132,13 @@
 #X connect 3 0 4 1;
 #X connect 5 0 6 0;
 #X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 7 0 15 0;
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 1;
 #X connect 11 0 0 0;
 #X connect 11 0 1 0;
-#X connect 12 0 8 0;
 #X connect 13 0 14 0;
 #X connect 14 0 12 0;
 #X restore 26 185 pd MASTER;
@@ -194,17 +195,23 @@
 #X connect 24 0 25 0;
 #X connect 25 0 3 0;
 #X restore 24 58 pd General;
-#X obj 117 108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 117 129 s LEDROUGE;
+#X obj 126 123 s LEDROUGE;
 #X obj 155 237 Orchestre ORCH 1;
 #X obj 155 258 Bruits BRUIT 2;
 #X obj 155 278 Chants CHANT 3;
 #X obj 155 298 Percu PERCU 4;
+#X obj 196 60 r BOUTONROUGE;
+#X obj 196 81 == 0;
+#X obj 126 102 spigot 1, f 12;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 3 0 5 0;
 #X connect 6 0 7 0;
 #X connect 8 0 2 0;
 #X connect 9 0 14 0;
-#X connect 14 0 15 0;
+#X connect 14 0 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 1;
+#X connect 22 0 15 0;

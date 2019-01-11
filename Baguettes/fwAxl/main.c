@@ -19,7 +19,8 @@ void setup(void) {
 //----------- Setup ----------------
 	fruitInit();
 			
-//	pinModeDigitalOut(LED); 	// set the LED pin mode to digital out
+	pinModeDigitalOut(LED); 	// set the LED pin mode to digital out
+	pinModeDigitalOut(SWLED); 	// set the LED pin mode to digital out
 	delayStart(mainDelay, 5000); 	// init the mainDelay to 5 ms
 
 //----------- Analog setup ----------------
@@ -80,7 +81,7 @@ void fraiseReceiveChar() // receive text
 	}
 	if(c=='S'){		//switch SWLED on/off 
 		c=fraiseGetChar();
-		digitalWrite(SWLED, c!='0');		
+		digitalWrite(SWLED, c=='0');		
 	}
 	else if(c=='E') { 	// echo text (send it back to host)
 		printf("C");
