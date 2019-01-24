@@ -18,9 +18,9 @@
 -1;
 #X obj 331 79 loadbang;
 #X obj 335 180 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 10809 1;
+-1 -1 0 1;
 #X obj 168 77 mknob 25 100 0 1 0 0 \$1RevSnd-snd \$1RevSnd-rcv \$1RevSnd
--2 -6 0 10 -257985 -1 -1 5581 1;
+-2 -6 0 10 -257985 -1 -1 5400 1;
 #X msg 96 171 \$1 10;
 #X obj 96 192 line~;
 #X obj 96 151 pow 2;
@@ -152,15 +152,13 @@
 #X obj 281 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 281 115 s \$1_PLAY;
-#X obj 295 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 295 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 627 229 364 357 baguette_ctl 0;
 #X obj 11 15 r BAGUETTE_CONTROL;
 #X obj 11 40 unpack f f, f 24;
 #X obj 223 34 r \$1_ON;
-#X obj 11 67 songParam SONGS \$1BCX;
-#X obj 152 67 songParam SONGS \$1BCY;
-#X obj 152 89 s \$0-BCY;
+#X obj 174 89 s \$0-BCY;
 #X obj 11 92 s \$0-BCX;
 #X obj 14 193 baguetteFX \$0 \$1;
 #X obj 13 167 s \$1PLAYER;
@@ -168,33 +166,33 @@
 #X obj 13 145 baguetteTranspose;
 #X obj 14 223 r AXLATTITUDE2;
 #X obj 14 245 unpack f f, f 24;
-#X obj 226 239 r \$1_ON;
-#X obj 14 272 songParam SONGS \$1B2X;
-#X obj 155 272 songParam SONGS \$1B2Y;
+#X obj 259 240 r \$1_ON;
 #X obj 14 297 s \$0-B2X;
-#X obj 155 294 s \$0-B2Y;
+#X obj 188 295 s \$0-B2Y;
+#X obj 11 67 songParam SONGS \$1BCX 0.1;
+#X obj 174 67 songParam SONGS \$1BCY 0.1;
+#X obj 14 272 songParam SONGS \$1B2X 0.1;
+#X obj 188 273 songParam SONGS \$1B2Y 0.1;
 #X connect 0 0 1 0;
-#X connect 1 0 3 0;
-#X connect 1 1 4 0;
-#X connect 2 0 3 1;
-#X connect 2 0 4 1;
-#X connect 3 0 6 0;
-#X connect 4 0 5 0;
+#X connect 1 0 14 0;
+#X connect 1 1 15 0;
+#X connect 2 0 14 1;
+#X connect 2 0 15 1;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
 #X connect 9 0 10 0;
-#X connect 10 0 8 0;
-#X connect 11 0 12 0;
-#X connect 12 0 14 0;
-#X connect 12 1 15 0;
-#X connect 13 0 14 1;
-#X connect 13 0 15 1;
-#X connect 14 0 16 0;
-#X connect 15 0 17 0;
+#X connect 10 0 16 0;
+#X connect 10 1 17 0;
+#X connect 11 0 16 1;
+#X connect 11 0 17 1;
+#X connect 14 0 4 0;
+#X connect 15 0 3 0;
+#X connect 16 0 12 0;
+#X connect 17 0 13 0;
 #X restore 404 192 pd baguette_ctl;
-#X obj 403 60 songParam SONGS \$1Select;
-#X obj 402 133 songParam SONGS \$1Fx;
 #X obj 343 59 loadbang;
 #X msg 343 80 0.45;
-#N canvas 245 342 480 402 rhythmbox 1;
+#N canvas 245 342 480 402 rhythmbox 0;
 #X obj 67 121 r CLOCK;
 #X floatatom 81 205 5 0 0 0 - - -;
 #X obj 192 166 pack 4 4;
@@ -209,7 +207,7 @@
 #X msg 225 116 1;
 #X msg 122 118 4;
 #X obj 67 228 spigot;
-#X obj 112 227 tgl 15 0 empty empty empty 17 7 0 10 -4034 -1 -1 1 1
+#X obj 112 227 tgl 15 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
 ;
 #X text 129 101 nb_steps;
 #X text 223 100 clock_divide;
@@ -388,15 +386,17 @@
 #X connect 32 0 29 0;
 #X restore 225 206 pd noteplayer_ctl;
 #X obj 25 24 clone noteplayer 6 \$1PLAYER;
+#X obj 403 60 songParam SONGS \$1Select 0.1;
+#X obj 402 133 songParam SONGS \$1Fx 0.1;
 #X connect 0 0 6 0;
 #X connect 0 0 1 0;
 #X connect 2 0 15 0;
 #X connect 3 0 7 0;
-#X connect 4 0 27 0;
-#X connect 5 0 28 0;
+#X connect 4 0 32 0;
+#X connect 5 0 33 0;
 #X connect 6 0 1 0;
-#X connect 9 0 27 1;
-#X connect 10 0 28 1;
+#X connect 9 0 32 1;
+#X connect 10 0 33 1;
 #X connect 11 0 0 0;
 #X connect 13 0 8 0;
 #X connect 14 0 12 0;
@@ -408,8 +408,8 @@
 #X connect 22 1 23 0;
 #X connect 23 0 24 0;
 #X connect 25 0 22 0;
-#X connect 27 0 8 0;
-#X connect 28 0 12 0;
-#X connect 29 0 30 0;
-#X connect 30 0 8 0;
-#X connect 33 0 11 0;
+#X connect 27 0 28 0;
+#X connect 28 0 8 0;
+#X connect 31 0 11 0;
+#X connect 32 0 8 0;
+#X connect 33 0 12 0;

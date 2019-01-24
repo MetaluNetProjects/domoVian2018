@@ -1,4 +1,4 @@
-#N canvas 28 375 292 436 10;
+#N canvas 28 402 292 436 10;
 #X declare -stdpath iemlib -lib iemlib1;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
@@ -160,7 +160,7 @@
 #X connect 23 0 24 0;
 #X connect 24 0 3 0;
 #X restore 25 31 pd General;
-#X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 126 123 s LEDROUGE;
 #X obj 155 237 Orchestre ORCH 1;
@@ -187,23 +187,25 @@
 -1 -1 6350 1;
 #X obj 379 36 loadbang;
 #X msg 379 57 0.5;
-#X obj 263 131 * 3;
+#X obj 135 87 hip~ 30;
+#X obj 263 131 * 2;
 #X connect 0 0 3 1;
 #X connect 1 0 3 0;
-#X connect 2 0 11 0;
+#X connect 2 0 15 0;
 #X connect 3 0 4 0;
 #X connect 3 0 4 1;
 #X connect 5 0 6 0;
-#X connect 6 0 11 0;
+#X connect 6 0 15 0;
 #X connect 7 0 8 0;
-#X connect 8 0 15 0;
+#X connect 8 0 16 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 1;
 #X connect 11 0 0 0;
 #X connect 11 0 1 0;
 #X connect 13 0 14 0;
 #X connect 14 0 12 0;
-#X connect 15 0 9 0;
+#X connect 15 0 11 0;
+#X connect 16 0 9 0;
 #X restore 26 53 pd audioMASTER;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
