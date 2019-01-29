@@ -1,0 +1,54 @@
+#N canvas 389 318 456 455 10;
+#X obj 31 21 cnv 15 100 100 empty \$0-viewColor empty 20 12 0 14 -135693
+-66577 0;
+#X msg 144 380 color 22 0;
+#X obj 39 401 s \$0-viewColor;
+#X msg 218 378 color #F02030 0;
+#X obj 39 248 pack f f f;
+#X obj 106 154 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -258113
+-1 -1 0 1;
+#X obj 107 175 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4034
+-1 -1 0 1;
+#X obj 60 196 t b f;
+#X obj 106 197 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4160
+-1 -1 0 1;
+#X obj 103 218 t b f;
+#X obj 39 269 unpack f f f, f 37;
+#X obj 39 290 * 255;
+#X obj 39 311 clip 0 255;
+#X obj 148 289 * 255;
+#X obj 148 310 clip 0 255;
+#X obj 258 289 * 255;
+#X obj 258 310 clip 0 255;
+#X obj 39 333 makefilename %.2X;
+#X obj 148 332 makefilename %.2X;
+#X obj 258 331 makefilename %.2X;
+#X obj 39 355 pack s s s, f 37;
+#X msg 39 376 color #\$1\$2\$3 0;
+#X obj 39 142 inlet;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 4 1;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X connect 9 1 4 2;
+#X connect 10 0 11 0;
+#X connect 10 1 13 0;
+#X connect 10 2 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 1;
+#X connect 19 0 20 2;
+#X connect 20 0 21 0;
+#X connect 21 0 2 0;
+#X connect 22 0 4 0;
+#X coords 0 -1 1 1 102 102 1 30 20;
