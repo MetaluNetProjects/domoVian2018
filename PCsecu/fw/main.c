@@ -11,8 +11,8 @@
 
 t_delay mainDelay;
 
-#define INITLED(led) do{ pinModeDigitalOut(led); digitalSet(led);} while(0)
-#define SETLED(led, on) digitalWrite(led, on == 0)
+#define INITLED(led) do{ pinModeDigitalOut(led); digitalClear(led);} while(0)
+#define SETLED(led, on) digitalWrite(led, on != 0)
 void setup(void) {	
 //----------- Setup ----------------
 	fruitInit();
