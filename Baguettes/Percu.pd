@@ -20,7 +20,7 @@
 #X obj 335 180 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 168 77 mknob 25 100 0 1 0 0 \$1RevSnd-snd \$1RevSnd-rcv \$1RevSnd
--2 -6 0 10 -257985 -1 -1 5400 1;
+-2 -6 0 10 -257985 -1 -1 9900 1;
 #X msg 96 171 \$1 10;
 #X obj 96 192 line~;
 #X obj 96 151 pow 2;
@@ -154,7 +154,7 @@
 #X connect 12 0 13 0;
 #X connect 13 0 15 0;
 #X restore 224 67 pd on/play;
-#X obj 281 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 281 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 281 115 s \$1_PLAY;
 #X obj 295 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -242,7 +242,6 @@
 #X restore 224 229 pd rhythmbox;
 #N canvas 1 81 702 416 noteplayer_ctl 0;
 #X obj 24 47 > 0.5;
-#X obj 24 71 change;
 #X obj 24 26 r \$1SELECT;
 #X obj 124 228 palinseq \$1 palinseq1;
 #X obj 124 203 getnbnotes;
@@ -256,7 +255,7 @@
 1;
 #X obj 123 71 &&;
 #X obj 136 51 t b f;
-#N canvas 1 81 486 384 attack 0;
+#N canvas 201 208 486 384 attack 0;
 #X obj 107 269 + 1;
 #X obj 107 248 random 16;
 #X obj 158 224 getnbnotes;
@@ -355,40 +354,41 @@
 #X obj 480 59 / 2;
 #X obj 480 81 * 4.5;
 #X obj 455 156 s PERCU-palinseq1-palinmesure-rcv;
-#X connect 0 0 1 0;
-#X connect 1 0 13 0;
-#X connect 1 0 14 0;
-#X connect 2 0 0 0;
-#X connect 3 0 9 0;
-#X connect 4 0 3 0;
+#X obj 24 71 change -1;
+#X connect 0 0 33 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
 #X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 4 0;
-#X connect 7 1 9 1;
-#X connect 8 0 15 0;
-#X connect 9 0 8 0;
+#X connect 6 0 3 0;
+#X connect 6 1 8 1;
+#X connect 7 0 14 0;
+#X connect 8 0 7 0;
+#X connect 10 0 9 0;
 #X connect 11 0 10 0;
 #X connect 12 0 11 0;
-#X connect 13 0 12 0;
-#X connect 13 1 12 1;
-#X connect 14 0 15 0;
-#X connect 16 0 12 0;
-#X connect 17 0 20 0;
-#X connect 18 0 28 0;
-#X connect 20 0 23 0;
-#X connect 21 0 22 0;
-#X connect 22 0 24 0;
-#X connect 23 0 27 0;
-#X connect 24 0 25 0;
-#X connect 24 1 26 0;
-#X connect 25 0 19 0;
-#X connect 26 0 25 0;
-#X connect 27 0 21 0;
-#X connect 28 0 31 0;
-#X connect 29 0 30 0;
-#X connect 30 0 33 0;
-#X connect 31 0 32 0;
-#X connect 32 0 29 0;
+#X connect 12 1 11 1;
+#X connect 13 0 14 0;
+#X connect 15 0 11 0;
+#X connect 16 0 19 0;
+#X connect 17 0 27 0;
+#X connect 19 0 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 22 0 26 0;
+#X connect 23 0 24 0;
+#X connect 23 1 25 0;
+#X connect 24 0 18 0;
+#X connect 25 0 24 0;
+#X connect 26 0 20 0;
+#X connect 27 0 30 0;
+#X connect 28 0 29 0;
+#X connect 29 0 32 0;
+#X connect 30 0 31 0;
+#X connect 31 0 28 0;
+#X connect 33 0 12 0;
+#X connect 33 0 13 0;
 #X restore 225 206 pd noteplayer_ctl;
 #X obj 25 24 clone noteplayer 6 \$1PLAYER;
 #X obj 403 60 songParam SONGS \$1Select 0.1;
