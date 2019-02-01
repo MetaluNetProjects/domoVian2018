@@ -34,12 +34,15 @@
 #X obj 326 323 apf \$1FX-A revsnd \$1RevSnd;
 #X obj 40 323 apecho \$1FX-A echo1;
 #X obj 332 157 r \$1_FX;
+#X obj 275 134 del 500;
+#X msg 275 155 0;
 #X connect 0 0 4 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 1;
 #X connect 4 0 13 0;
 #X connect 4 0 21 0;
 #X connect 5 0 16 0;
+#X connect 5 0 23 0;
 #X connect 6 0 16 1;
 #X connect 7 0 5 0;
 #X connect 8 0 15 0;
@@ -51,6 +54,8 @@
 #X connect 19 0 12 0;
 #X connect 21 0 14 0;
 #X connect 22 0 8 0;
+#X connect 23 0 24 0;
+#X connect 24 0 8 0;
 #X restore 109 161 pd fx;
 #X obj 224 117 s \$1_ON;
 #X obj 403 81 s \$1SELECT;

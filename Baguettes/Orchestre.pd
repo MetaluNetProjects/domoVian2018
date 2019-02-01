@@ -7,7 +7,7 @@
 #X obj 343 25 r POTSELECT;
 #X obj 342 98 r POTFX;
 #X text 29 312 5:flute 7:orch 9:pizzBas 10:pizzViolon;
-#N canvas 142 143 628 503 fx 0;
+#N canvas 513 276 628 503 fx 0;
 #X obj 40 30 inlet~;
 #X obj 80 237 throw~ reverb;
 #X msg 55 81 \$1 10;
@@ -21,7 +21,7 @@
 #X obj 335 180 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 168 77 mknob 25 100 0 1 0 0 \$1RevSnd-snd \$1RevSnd-rcv \$1RevSnd
--2 -6 0 10 -257985 -1 -1 5400 1;
+-2 -6 0 10 -257985 -1 -1 9900 1;
 #X msg 96 171 \$1 10;
 #X obj 96 192 line~;
 #X obj 96 151 pow 2;
@@ -35,12 +35,15 @@
 #X obj 326 323 apf \$1FX-A revsnd \$1RevSnd;
 #X obj 40 323 apecho \$1FX-A echo1;
 #X obj 332 157 r \$1_FX;
+#X obj 275 134 del 500;
+#X msg 275 155 0;
 #X connect 0 0 4 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 1;
 #X connect 4 0 13 0;
 #X connect 4 0 21 0;
 #X connect 5 0 16 0;
+#X connect 5 0 23 0;
 #X connect 6 0 16 1;
 #X connect 7 0 5 0;
 #X connect 8 0 15 0;
@@ -52,6 +55,8 @@
 #X connect 19 0 12 0;
 #X connect 21 0 14 0;
 #X connect 22 0 8 0;
+#X connect 23 0 24 0;
+#X connect 24 0 8 0;
 #X restore 50 241 pd fx;
 #X obj 25 20 clone noteplayer 4 \$1PLAYER;
 #X obj 204 87 s \$1_ON;
