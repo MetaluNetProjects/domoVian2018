@@ -9,20 +9,33 @@
 #define SWITCH K11
 #define SWLED K12
 
-#define PEDAL1 MB1
-#define PEDAL2 MBEN
-#define PEDAL3 MBPWM
-#define PEDAL4 MOTB_CURRENT
-
-
 #define POT1 K1
 #define POT2 K2
-//#define POT3 K3 // K3 is taken by MOTA_CURRENT
+// K3 is taken by MOTA_CURRENT
+#define POT3 K4
+// K5 is taken by I2C_SCL
+#define POT4 K6
+// K7 is taken by I2C_SDA
 
-#define PRESSPOS_D1 MAEN
-#define PRESSPOS_D2 MA1
-#define PRESSPOS_SL MOTA_CURRENT // same as K3
-#define PRESSPOS_R0 MAPWM // R0 is connected to SL through 4.7k
+// VNH2 :
+#define MODESW1		MB1
+#define MODESW1 	MBEN
+//#define PEDAL3	MBPWM // K9
+//#define PEDAL4 	MOTB_CURRENT // K10
+//#define PEDAL2 	MBEN2
+//#define PEDAL1 	MB2
+//	 		VDD
+//	 		GND
+
+
+#define PRESSPOS_D2 	MA1
+#define PRESSPOS_D1 	MAEN
+#define PRESSPOS_R0 	MAPWM // R0 is connected to SL through 4.7k
+#define PRESSPOS_SL 	MOTA_CURRENT // same as K3
+//	 		MEEN2
+//			MA2
+//	 		VDD
+//	 		GND
 
 #define PRESSPOS_D2CHAN 0
 #define PRESSPOS_SLCHAN 1
