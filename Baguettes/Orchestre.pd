@@ -19,9 +19,9 @@
 -1;
 #X obj 331 79 loadbang;
 #X obj 335 180 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 7099 1;
 #X obj 168 77 mknob 25 100 0 1 0 0 \$1RevSnd-snd \$1RevSnd-rcv \$1RevSnd
--2 -6 0 10 -257985 -1 -1 9900 1;
+-2 -6 0 10 -257985 -1 -1 5400 1;
 #X msg 96 171 \$1 10;
 #X obj 96 192 line~;
 #X obj 96 151 pow 2;
@@ -139,9 +139,9 @@
 #X obj 183 15 r \$1_ON;
 #X obj 96 38 spigot, f 15;
 #X obj 96 59 sel 1;
-#X obj 96 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 96 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 96 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 96 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 50 145 set \$1;
 #X obj 96 165 sel 0 1;
@@ -150,6 +150,8 @@
 #X obj 96 80 del 1;
 #X obj 63 265 s LEDROUGE;
 #X obj 96 242 s \$1PLAYER;
+#X obj 289 122 loadbang;
+#X obj 289 143 del 1000;
 #X connect 0 0 3 0;
 #X connect 1 0 6 0;
 #X connect 2 0 3 1;
@@ -165,6 +167,8 @@
 #X connect 9 0 13 0;
 #X connect 10 0 13 0;
 #X connect 11 0 5 0;
+#X connect 14 0 15 0;
+#X connect 15 0 10 0;
 #X restore 202 162 pd gamme;
 #N canvas 1 81 423 545 attack 0;
 #X text 71 475 play PLAYER_VOICENB BANK_NB NOTE_NB [KEY];
