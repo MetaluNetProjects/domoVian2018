@@ -14,7 +14,6 @@
 
 t_delay mainDelay;
 ADXL345 adxl1;
-ADXL345 adxl2;
 
 char APDSOK = 0;
 uint16_t colR, colG, colB, colC;
@@ -44,6 +43,8 @@ void setup(void) {
 	analogInit();		// init analog module	
 	analogSelect(3,POT1);
 	analogSelect(4,POT2);
+	analogSelect(5,POT3);
+	analogSelect(6,POT4);
 
 	analogSelect(PRESSPOS_D2CHAN,PRESSPOS_D2);
 	analogSelect(PRESSPOS_SLCHAN,PRESSPOS_SL);
@@ -54,17 +55,14 @@ void setup(void) {
 	switchInit();
 	INTCON2bits.RBPU = 0; // enable pullups on PORTB
 	switchSelect(0,SWITCH);
-	switchSelect(1,PEDAL1);
-	switchSelect(2,PEDAL2);
-	switchSelect(3,PEDAL3);
-	switchSelect(4,PEDAL4);
+	switchSelect(1,MODESW1);
+	switchSelect(2,MODESW2);
 
 //----------- setup I2C master ----------------
 	i2cm_init(I2C_MASTER, I2C_SLEW_ON, FOSC/400000/4-1);
 	
 //----------- setup ADXL345 ----------------
-	ADXL345Init(&adxl1, 0); // 1st ADXL345's SDO pin is high voltage level
-	ADXL345Init(&adxl2, 1); // 2nd ADXL345's SDO pin is low voltage level
+	ADXL345Init(&adxl1, 1); // ADXL345's SDO pin is low voltage level
 
 //----------- setup APDS9960 ----------------
 	APDS9960setup();
@@ -125,15 +123,11 @@ void loop() {
 	if(delayFinished(mainDelay)) // when mainDelay triggers :
 	{
 		delayStart(mainDelay, 10000); 	// re-init mainDelay
-		if((cycle&1) == 0) ADXL345Send(&adxl1, 1);
-		else ADXL345Send(&adxl2, 2);
+		ADXL345Send(&adxl1, 1);
 		if(!switchSend()) analogSend();		// send analog channels that changed
 		cycle++;
 		fraiseService();	// listen to Fraise events
 		ADXL345Service(&adxl1);
-		fraiseService();	// listen to Fraise events
-		ADXL345Service(&adxl2);
-		fraiseService();	// listen to Fraise events
 		if(cycle == 0) printf("CAPDSOK %d\n", APDSOK);
 		//APDS9960_service();
 	}
@@ -152,7 +146,7 @@ void fraiseReceiveChar() // receive text
 	}
 	if(c=='S'){		//switch SWLED on/off 
 		c=fraiseGetChar();
-		digitalWrite(SWLED, c=='0');		
+		digitalWrite(SWLED, c!='0');		
 	}
 	else if(c=='E') { 	// echo text (send it back to host)
 		printf("C");
@@ -163,7 +157,6 @@ void fraiseReceiveChar() // receive text
 	else if(c=='R') { 	// reset I2C
 		i2cm_init(I2C_MASTER, I2C_SLEW_ON, FOSC/400000/4-1);
 		ADXL345Init(&adxl1, 0);
-		ADXL345Init(&adxl2, 1);
 	}
 	else if(c=='A') { 	// reset APDS
 		i2cm_init(I2C_MASTER, I2C_SLEW_ON, FOSC/400000/4-1);

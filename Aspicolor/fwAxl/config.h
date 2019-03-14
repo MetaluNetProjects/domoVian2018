@@ -19,23 +19,23 @@
 
 // VNH2 :
 #define MODESW1		MB1
-#define MODESW1 	MBEN
+#define MODESW2 	MBEN
 //#define PEDAL3	MBPWM // K9
 //#define PEDAL4 	MOTB_CURRENT // K10
 //#define PEDAL2 	MBEN2
 //#define PEDAL1 	MB2
-//	 		VDD
-//	 		GND
+//	 				VDD
+//	 				GND
 
 
 #define PRESSPOS_D2 	MA1
 #define PRESSPOS_D1 	MAEN
 #define PRESSPOS_R0 	MAPWM // R0 is connected to SL through 4.7k
 #define PRESSPOS_SL 	MOTA_CURRENT // same as K3
-//	 		MEEN2
-//			MA2
-//	 		VDD
-//	 		GND
+//	 					MEEN2
+//						MA2
+//	 					VDD
+//	 					GND
 
 #define PRESSPOS_D2CHAN 0
 #define PRESSPOS_SLCHAN 1

@@ -1,0 +1,46 @@
+#N canvas 1 81 665 258 10;
+#X declare -lib libdir -lib ggee -stdpath ggee -path AutoPreset;
+#X obj 66 146 getdir 1;
+#X msg 66 199 loadfile \$1/\$2;
+#X obj 263 145 getdir 1;
+#X msg 263 198 savefile \$1/\$2;
+#X obj 333 74 r \$1-MODE;
+#X text 16 2 usage : presetmaster instrument Ref;
+#X obj 66 76 apmaster \$1\$2;
+#X obj 360 118 list prepend \$1 \$2;
+#X obj 261 4 declare -lib libdir -lib ggee -stdpath ggee -path AutoPreset
+;
+#X obj 333 95 t b f;
+#X obj 66 170 list append SETTINGS/\$1\$2-0.txt;
+#X obj 263 169 list append SETTINGS/\$1\$2-0.txt;
+#X msg 360 140 symbol SETTINGS/\$1\$2-\$3.txt;
+#X obj 66 98 loadbang;
+#X obj 66 119 del 10;
+#X obj 66 225 s \$1\$2-apmaster-rcv;
+#X obj 263 224 s \$1\$2-apmaster-rcv;
+#X obj 44 37 bng 15 250 50 0 empty empty load 17 7 0 10 -4034 -1 -1
+;
+#X obj 97 37 bng 15 250 50 0 empty empty save 17 7 0 10 -258113 -1
+-1;
+#X obj 220 34 inlet;
+#X obj 220 55 route load save;
+#X connect 0 0 10 0;
+#X connect 1 0 15 0;
+#X connect 2 0 11 0;
+#X connect 3 0 16 0;
+#X connect 4 0 9 0;
+#X connect 7 0 12 0;
+#X connect 9 0 0 0;
+#X connect 9 1 7 0;
+#X connect 10 0 1 0;
+#X connect 11 0 3 0;
+#X connect 12 0 10 1;
+#X connect 12 0 11 1;
+#X connect 13 0 14 0;
+#X connect 14 0 0 0;
+#X connect 17 0 0 0;
+#X connect 18 0 2 0;
+#X connect 19 0 20 0;
+#X connect 20 0 0 0;
+#X connect 20 1 2 0;
+#X coords 0 -1 1 1 100 35 1 40 20;
