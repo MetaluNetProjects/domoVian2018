@@ -1,4 +1,4 @@
-#N canvas 139 501 684 457 10;
+#N canvas 129 493 684 457 10;
 #X declare -stdpath iemlib -lib iemlib1;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
@@ -20,7 +20,7 @@
 #X obj 152 30 unpack f f;
 #X obj 209 51 * -1;
 #X obj 209 72 clip 0 1;
-#N canvas 271 234 450 300 declares 1;
+#N canvas 271 234 450 300 declares 0;
 #X obj 28 57 declare -stdpath iemlib -lib iemlib1;
 #X obj 29 80 declare -path ../domoTools/gammabs;
 #X obj 29 98 declare -path ../domoTools/domonet;
@@ -203,7 +203,7 @@
 #N canvas 926 397 753 557 fx 0;
 #X obj 40 30 inlet~;
 #X obj 402 133 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 9251 1;
+-1 -1 11585 1;
 #X obj 40 483 outlet~;
 #X obj 326 323 apf \$1FX-A revsnd \$1RevSnd;
 #X obj 449 45 presetmaster \$1 FXB;
@@ -268,11 +268,11 @@
 #X msg 289 157 -1 gamme \$1;
 #X obj 290 177 s \$1-voicectl;
 #X obj 77 96 * 18;
-#N canvas 761 160 630 509 phrases 0;
+#N canvas 751 152 630 509 phrases 1;
 #X obj 56 462 outlet;
 #X obj 29 11 declare -path ../;
 #X obj 273 169 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 42 1;
+-1 -1 12700 1;
 #X obj 270 146 r \$1_FX;
 #X obj 353 42 apmaster \$1MELO;
 #X obj 270 189 MORPHgroup \$1MELO M;
@@ -294,7 +294,7 @@
 #X msg 287 324 play \$1;
 #X obj 184 388 sel 0;
 #X msg 72 433 0;
-#X obj 327 143 r POTSELECT;
+#X obj 411 128 r POTSELECT;
 #X obj 56 347 phrase_play_manualspeed \$1MELO-M melo 1;
 #X obj 362 268 r POTSPEED;
 #X obj 362 289 * 6.5;
@@ -310,6 +310,8 @@
 #X msg 481 375 6;
 #X msg 511 374 8;
 #X msg 541 375 16;
+#X obj 411 149 * 1.2;
+#X obj 411 170 clip 0 1;
 #X connect 2 0 5 0;
 #X connect 7 0 6 0;
 #X connect 8 0 6 1;
@@ -326,7 +328,7 @@
 #X connect 20 0 13 0;
 #X connect 20 0 21 0;
 #X connect 21 0 0 0;
-#X connect 22 0 2 0;
+#X connect 22 0 38 0;
 #X connect 23 0 13 0;
 #X connect 23 0 0 0;
 #X connect 23 1 14 0;
@@ -350,6 +352,8 @@
 #X connect 35 0 29 0;
 #X connect 36 0 29 0;
 #X connect 37 0 29 0;
+#X connect 38 0 39 0;
+#X connect 39 0 2 0;
 #X restore 71 148 pd phrases;
 #X obj 37 168 +;
 #X obj 71 168 t b f;
