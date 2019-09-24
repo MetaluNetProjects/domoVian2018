@@ -1,5 +1,4 @@
-#N canvas 110 390 351 424 10;
-#X declare -stdpath iemlib -lib iemlib1;
+#N canvas 120 592 351 424 10;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
 #X declare -path ../domoTools/notebank;
@@ -8,6 +7,7 @@
 #X declare -path ../domoTools/song;
 #X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee
 -path moonlib -path AutoPreset;
+#X declare -path iemlib -lib iemlib;
 #X obj 25 11 fraise_interface;
 #X obj 25 174 bng 50 50 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -76,7 +76,7 @@
 #X connect 26 0 12 1;
 #X connect 26 0 14 0;
 #X restore 26 371 pd notebanks;
-#N canvas 399 358 625 384 General 0;
+#N canvas 399 358 625 384 General 1;
 #X obj 26 94 getenv HOME;
 #X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -102,8 +102,7 @@
 #X obj 27 271 songMaster SONGS SETTINGS;
 #X obj 27 247 5clicks;
 #X msg 26 135 symbol \$1/Datas/Domozic/Baguettes;
-#N canvas 1 81 450 300 declares 0;
-#X obj 28 57 declare -stdpath iemlib -lib iemlib1;
+#N canvas 588 177 450 300 declares 0;
 #X obj 29 80 declare -path ../domoTools/gammabs;
 #X obj 29 98 declare -path ../domoTools/domonet;
 #X obj 29 116 declare -path ../domoTools/notebank;
@@ -112,6 +111,7 @@
 #X obj 29 171 declare -path ../domoTools/song;
 #X obj 27 28 declare -stdpath motex -path motex -lib motex -path ggee
 -lib ggee -path moonlib -path AutoPreset;
+#X obj 28 57 declare -path iemlib -lib iemlib;
 #X restore 27 9 pd declares;
 #X obj 245 135 getdir;
 #X msg 245 157 symbol \$1/WAVS;
@@ -136,12 +136,12 @@
 #X connect 23 0 24 0;
 #X connect 24 0 3 0;
 #X restore 25 32 pd General;
-#X obj 67 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 67 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 67 125 TEMPO \$1;
 #X obj 67 146 s LEDS;
 #X obj 167 184 annonce;
-#N canvas 71 421 592 299 MASTER 0;
+#N canvas 305 380 592 299 MASTER 0;
 #X obj 120 159 limiter~;
 #X obj 80 160 z~ 64;
 #X obj 78 22 catch~ master;
@@ -157,30 +157,34 @@
 #X obj 311 115 s SECUVOL;
 #X obj 378 158 r SECUVOL;
 #X obj 262 202 *~;
-#X obj 79 124 *~ 0.5;
 #X obj 452 149 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 311 75 route SECU2;
 #X obj 79 98 hip~ 30;
+#X obj 186 241 env~;
+#X floatatom 186 262 5 0 0 0 - - -;
+#X obj 79 124 *~ 1;
 #X connect 0 0 3 1;
 #X connect 1 0 3 0;
-#X connect 2 0 18 0;
+#X connect 2 0 17 0;
 #X connect 3 0 4 0;
 #X connect 3 0 4 1;
+#X connect 3 0 18 0;
 #X connect 5 0 10 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 8 0 14 1;
-#X connect 9 0 17 0;
-#X connect 10 0 18 0;
+#X connect 9 0 16 0;
+#X connect 10 0 17 0;
 #X connect 11 0 14 0;
 #X connect 13 0 6 0;
-#X connect 14 0 18 0;
-#X connect 15 0 0 0;
-#X connect 15 0 1 0;
-#X connect 16 0 6 0;
-#X connect 17 0 12 0;
-#X connect 18 0 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 6 0;
+#X connect 16 0 12 0;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 20 0 0 0;
+#X connect 20 0 1 0;
 #X restore 25 53 pd MASTER;
 #X obj 25 152 sel 1;
 #X obj 168 208 electrocut;

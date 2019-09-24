@@ -1,4 +1,4 @@
-#N canvas 135 372 1087 331 10;
+#N canvas 335 381 1087 331 10;
 #X obj 28 121 r ANALOGS;
 #X obj 28 205 s \$1SELECT;
 #X obj 193 162 r \$1-ON;
@@ -56,10 +56,12 @@
 #X connect 12 0 13 0;
 #X connect 13 0 15 0;
 #X restore 31 57 pd on/play;
-#X obj 88 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 88 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 31 97 s \$1-ON;
 #X obj 88 95 s \$1-PLAY;
+#X obj 135 33 loadbang;
+#X msg 135 54 0;
 #X connect 0 0 12 0;
 #X connect 2 0 9 1;
 #X connect 3 0 10 1;
@@ -79,3 +81,6 @@
 #X connect 17 0 16 0;
 #X connect 17 1 18 0;
 #X connect 18 0 20 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 22 0 19 0;
