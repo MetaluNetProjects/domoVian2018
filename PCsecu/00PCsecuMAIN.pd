@@ -1,18 +1,16 @@
-#N canvas 120 592 351 424 10;
+#N canvas 110 558 351 424 10;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
 #X declare -path ../domoTools/notebank;
 #X declare -path ../domoTools/effects;
 #X declare -path ../domoTools/rhythmic;
 #X declare -path ../domoTools/song;
-#X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee
--path moonlib -path AutoPreset;
 #X declare -path iemlib -lib iemlib;
+#X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee -path moonlib -path AutoPreset -lib zexy -path zexy;
 #X obj 25 11 fraise_interface;
-#X obj 25 174 bng 50 50 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 25 174 bng 50 50 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 102 181 r /BPM;
-#X floatatom 102 203 5 0 0 0 - - -;
+#X floatatom 102 203 5 0 0 0 - - - 0;
 #X obj 67 80 r TEMPOLED;
 #X obj 25 230 GAMMEKBV /GAMME;
 #X obj 25 294 GAMMEKBV /CHORD;
@@ -26,7 +24,7 @@
 #X obj 108 361 dac~;
 #X obj 340 406 s PLAYER1;
 #X text 268 424 play PLAYER_VOICENB BANK_NB NOTE_NB [KEY];
-#X floatatom 340 231 5 0 0 0 - - -;
+#X floatatom 340 231 5 0 0 0 - - - 0;
 #X msg 340 385 play \$1 \$2 \$3 0;
 #X obj 340 252 t b f, f 10;
 #X obj 340 273 i;
@@ -35,13 +33,13 @@
 #X msg 340 357 \$1 \$2 \$3;
 #X msg 462 190 1;
 #X msg 463 232 3;
-#X floatatom 453 367 5 0 0 0 - - -;
+#X floatatom 453 367 5 0 0 0 - - - 0;
 #X msg 453 387 transpose \$1;
 #X obj 119 326 *~ 0.4;
 #X msg 463 210 2;
 #X obj 471 316 getnbnotes;
 #X obj 430 280 f;
-#X floatatom 471 337 5 0 0 0 - - -;
+#X floatatom 471 337 5 0 0 0 - - - 0;
 #X obj 119 304 clone noteplayer 2 PLAYER1;
 #X obj 340 315 mod 2;
 #X obj 63 52 notebank 1 17 CollectionAlarmeVoix;
@@ -78,9 +76,8 @@
 #X restore 26 371 pd notebanks;
 #N canvas 399 358 625 384 General 1;
 #X obj 26 94 getenv HOME;
-#X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X symbolatom 26 115 10 0 0 0 - - -;
+#X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X symbolatom 26 115 10 0 0 0 - - - 0;
 #X obj 245 179 s DATASDIR;
 #X obj 245 96 loadbang;
 #X obj 411 49 loadbang;
@@ -91,27 +88,24 @@
 #X msg 417 161 145;
 #X obj 426 108 loadbang;
 #X msg 386 127 1;
-#X obj 27 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
--1;
+#X obj 27 217 bng 15 250 50 0 empty empty empty 17 7 0 10 #fc0400 #000000 #000000;
 #X msg 218 246 symbol test1;
 #X obj 85 248 s /UNLOCKSNAP;
-#X obj 85 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 85 229 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 300 246 symbol test2;
 #X obj 218 267 s /SONG;
 #X obj 27 271 songMaster SONGS SETTINGS;
 #X obj 27 247 5clicks;
 #X msg 26 135 symbol \$1/Datas/Domozic/Baguettes;
-#N canvas 588 177 450 300 declares 0;
+#N canvas 588 177 450 300 declares 1;
 #X obj 29 80 declare -path ../domoTools/gammabs;
 #X obj 29 98 declare -path ../domoTools/domonet;
 #X obj 29 116 declare -path ../domoTools/notebank;
 #X obj 29 134 declare -path ../domoTools/effects;
 #X obj 29 153 declare -path ../domoTools/rhythmic;
 #X obj 29 171 declare -path ../domoTools/song;
-#X obj 27 28 declare -stdpath motex -path motex -lib motex -path ggee
--lib ggee -path moonlib -path AutoPreset;
 #X obj 28 57 declare -path iemlib -lib iemlib;
+#X obj 29 20 declare -stdpath motex -path motex -lib motex -path ggee -lib ggee -path moonlib -path AutoPreset -lib zexy -path zexy, f 63;
 #X restore 27 9 pd declares;
 #X obj 245 135 getdir;
 #X msg 245 157 symbol \$1/WAVS;
@@ -136,8 +130,7 @@
 #X connect 23 0 24 0;
 #X connect 24 0 3 0;
 #X restore 25 32 pd General;
-#X obj 67 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 67 103 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 67 125 TEMPO \$1;
 #X obj 67 146 s LEDS;
 #X obj 167 184 annonce;
@@ -157,12 +150,11 @@
 #X obj 311 115 s SECUVOL;
 #X obj 378 158 r SECUVOL;
 #X obj 262 202 *~;
-#X obj 452 149 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+#X obj 452 149 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 311 75 route SECU2;
 #X obj 79 98 hip~ 30;
 #X obj 186 241 env~;
-#X floatatom 186 262 5 0 0 0 - - -;
+#X floatatom 186 262 5 0 0 0 - - - 0;
 #X obj 79 124 *~ 1;
 #X connect 0 0 3 1;
 #X connect 1 0 3 0;
