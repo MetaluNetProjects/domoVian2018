@@ -1,15 +1,11 @@
-#N canvas 570 126 552 589 10;
+#N canvas 570 126 552 617 10;
 #X declare -lib iemlib;
 #N canvas 1 106 354 265 band2 0;
-#X obj 114 117 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
--262130 -1 -1 96 256;
+#X obj 114 117 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10 #fcfcc4 #000000 #000000 96 256;
 #X obj 40 114 mtof;
-#X obj 192 118 nbx 4 14 -1e+37 1e+37 0 1 empty empty Q -8 7 0 10 -204786
--1 -1 0.720001 256;
-#X obj 192 135 nbx 4 14 0 200 0 1 empty empty dB -12 7 0 10 -261234
--1 -1 44.01 256;
-#X obj 114 134 nbx 5 14 -1e+37 1e+37 0 0 empty empty Hz -12 7 0 10
--262130 -1 -1 2093 256;
+#X obj 192 118 nbx 4 14 -1e+37 1e+37 0 1 empty empty Q -8 7 0 10 #c4fcc4 #000000 #000000 0.720001 256;
+#X obj 192 135 nbx 4 14 0 200 0 1 empty empty dB -12 7 0 10 #fcc4c4 #000000 #000000 44.01 256;
+#X obj 114 134 nbx 5 14 -1e+37 1e+37 0 0 empty empty Hz -12 7 0 10 #fcfcc4 #000000 #000000 0 256;
 #X obj 36 52 ftom;
 #X msg 40 135 set \$1;
 #X msg 36 71 set \$1;
@@ -45,8 +41,7 @@
 #X obj 49 197 lop~ 7000;
 #X obj 49 224 *~;
 #X obj 72 417 *~;
-#X obj 261 249 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 261 249 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 313 321 0;
 #X msg 212 321 1;
 #X obj 212 293 b;
@@ -61,8 +56,8 @@
 #X obj 153 173 *~;
 #X obj 152 195 clip~ 0 0.3;
 #X obj 48 120 hip~ 1000;
-#X obj 73 445 clip~ -2 2;
-#X floatatom 48 68 5 0 0 0 - - -;
+#X obj 72 446 clip~ -2 2;
+#X floatatom 48 68 5 0 0 0 - - - 0;
 #X obj 46 247 hip~ 2000;
 #X obj 139 45 lop~ 3;
 #X obj 301 162 change;
@@ -76,20 +71,18 @@
 #X obj 256 314 del 20;
 #X msg 68 38 100;
 #X msg 272 61;
-#X floatatom 243 92 5 0 0 0 - - -;
-#X floatatom 236 124 5 0 0 0 - - -;
+#X floatatom 243 92 5 0 0 0 - - - 0;
+#X floatatom 236 124 5 0 0 0 - - - 0;
 #X obj 155 118 *~ 0.1;
 #X obj 49 146 dist~ 5;
-#X obj 261 163 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 261 163 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 301 88 r ANALOGS;
 #X obj 301 109 route ELECTROCUTE;
 #X obj 301 142 < 0.5;
-#X obj 73 466 *~ 0.2;
-#X obj 211 410 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
--1 -1 7500 1;
+#X obj 72 544 *~ 0.2;
+#X obj 211 410 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 9600 1;
 #X obj 208 430 pow 2;
-#X obj 73 495 throw~ mastersecu;
+#X obj 73 570 throw~ mastersecu;
 #X obj 364 33 declare -lib iemlib;
 #X obj 315 233 del 100;
 #X obj 199 214 noise~;
@@ -97,6 +90,9 @@
 #X obj 199 238 lop~ 5;
 #X obj 199 259 *~ 20;
 #X obj 388 229 del 3500;
+#X obj 83 468 hp4_butt~ 1500;
+#X obj 73 494 hp4_butt~ 300;
+#X obj 83 520 clip~ -2 2;
 #X connect 0 0 4 0;
 #X connect 1 0 19 0;
 #X connect 2 0 3 0;
@@ -120,7 +116,8 @@
 #X connect 17 0 4 0;
 #X connect 18 0 50 0;
 #X connect 19 0 38 0;
-#X connect 20 0 43 0;
+#X connect 20 0 54 0;
+#X connect 20 0 55 0;
 #X connect 21 0 1 0;
 #X connect 22 0 0 0;
 #X connect 23 0 15 0;
@@ -158,3 +155,6 @@
 #X connect 51 0 52 0;
 #X connect 52 0 50 0;
 #X connect 53 0 28 0;
+#X connect 54 0 55 0;
+#X connect 55 0 56 0;
+#X connect 56 0 43 0;
