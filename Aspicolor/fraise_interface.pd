@@ -533,7 +533,7 @@
 #X obj 62 353 route 0 1 2 3 4 5 6;
 #X obj 356 452 route 0 1 2 3;
 #X obj 23 523 route 0 1 2;
-#X obj 44 548 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 44 548 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 73 547 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -556,13 +556,14 @@
 #X obj 73 588 t b f;
 #X obj 44 610 s BOUTONMODE;
 #X obj 38 475 clip 0 1;
-#X floatatom 147 521 5 0 0 0 - - -;
 #X obj 38 425 / 0.85;
 #X obj 75 406 > 0.1;
 #X obj 38 446 - 0.05;
 #X msg 114 433 1 \$1;
 #X obj 114 454 -;
 #X obj 114 475 clip 0 1;
+#X obj 146 561 loadbang;
+#X msg 146 583 0;
 #X connect 8 0 9 0;
 #X connect 9 0 64 0;
 #X connect 9 1 10 0;
@@ -576,8 +577,8 @@
 #X connect 24 1 54 0;
 #X connect 25 0 62 0;
 #X connect 27 0 11 1;
-#X connect 28 0 87 0;
-#X connect 29 0 90 0;
+#X connect 28 0 86 0;
+#X connect 29 0 89 0;
 #X connect 32 0 37 0;
 #X connect 32 0 57 0;
 #X connect 35 0 11 1;
@@ -606,7 +607,7 @@
 #X connect 61 0 43 0;
 #X connect 62 0 28 1;
 #X connect 62 1 28 0;
-#X connect 62 1 88 0;
+#X connect 62 1 87 0;
 #X connect 62 2 29 0;
 #X connect 62 3 72 0;
 #X connect 62 4 71 0;
@@ -636,9 +637,11 @@
 #X connect 83 0 81 0;
 #X connect 83 1 81 1;
 #X connect 85 0 31 0;
-#X connect 87 0 89 0;
-#X connect 88 0 29 1;
-#X connect 89 0 85 0;
+#X connect 86 0 88 0;
+#X connect 87 0 29 1;
+#X connect 88 0 85 0;
+#X connect 89 0 90 0;
 #X connect 90 0 91 0;
-#X connect 91 0 92 0;
-#X connect 92 0 30 0;
+#X connect 91 0 30 0;
+#X connect 92 0 93 0;
+#X connect 93 0 84 0;

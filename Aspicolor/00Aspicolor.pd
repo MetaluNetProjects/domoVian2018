@@ -9,6 +9,7 @@
 #X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee
 -path moonlib -path AutoPreset;
 #X declare -path creb -lib creb;
+#X declare -path iemlib;
 #X obj 24 37 fraise_interface;
 #X obj 25 84 r CLOCK;
 #X obj 25 127 unpack f f;
@@ -573,6 +574,7 @@ reverb/echo + select AEIOU, f 82;
 #X restore 210 155 pd notes-ctl;
 #X obj 168 237 Aspi ASPI;
 #X obj 262 275 l Orchestre ORCH 1;
+#X obj 20 417 declare -path iemlib;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 3 0 5 0;
