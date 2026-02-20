@@ -1,23 +1,20 @@
-#N canvas 448 269 472 463 10;
-#X declare -stdpath iemlib -lib iemlib1;
+#N canvas 118 276 402 463 10;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
 #X declare -path ../domoTools/notebank;
 #X declare -path ../domoTools/effects;
 #X declare -path ../domoTools/rhythmic;
 #X declare -path ../domoTools/song;
-#X declare -stdpath motex -path motex -lib motex -path ggee -lib ggee
--path moonlib -path AutoPreset;
+#X declare -path zexy -lib zexy -path iemlib -lib iemlib -path motex -lib motex -path ggee -lib ggee -path moonlib -path AutoPreset;
 #X declare -path creb -lib creb;
 #X obj 24 37 fraise_interface;
 #X obj 25 84 r CLOCK;
 #X obj 25 127 unpack f f;
-#X floatatom 25 149 5 0 0 0 - - -;
-#X floatatom 82 149 5 0 0 0 - - -;
-#X obj 25 174 bng 50 50 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X floatatom 25 149 5 0 0 0 - - - 0;
+#X floatatom 82 149 5 0 0 0 - - - 0;
+#X obj 25 174 bng 50 50 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 102 179 r /BPM;
-#X floatatom 102 203 5 0 0 0 - - -;
+#X floatatom 102 203 5 0 0 0 - - - 0;
 #X obj 25 105 route list;
 #X obj 126 61 r TEMPOLED;
 #X obj 25 230 GAMMEKBV /GAMME;
@@ -31,7 +28,7 @@
 #X obj 328 71 dac~;
 #X obj 340 406 s PLAYER1;
 #X text 268 424 play PLAYER_VOICENB BANK_NB NOTE_NB [KEY];
-#X floatatom 340 231 5 0 0 0 - - -;
+#X floatatom 340 231 5 0 0 0 - - - 0;
 #X msg 340 385 play \$1 \$2 \$3 0;
 #X obj 340 252 t b f, f 10;
 #X obj 340 273 i;
@@ -40,26 +37,24 @@
 #X msg 340 357 \$1 \$2 \$3;
 #X msg 429 285 1;
 #X msg 429 305 3;
-#X floatatom 453 367 5 0 0 0 - - -;
+#X floatatom 453 367 5 0 0 0 - - - 0;
 #X msg 453 387 transpose \$1;
 #X obj 119 326 *~ 0.4;
 #X obj 61 431 throw~ master;
-#X floatatom 464 277 5 0 0 0 - - -;
+#X floatatom 464 277 5 0 0 0 - - - 0;
 #X obj 468 202 + 1;
 #X obj 459 105 metro 200;
-#X obj 462 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 462 63 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 164 405 throw~ reverb;
 #X obj 164 380 *~ 0.8;
 #X obj 468 181 random 16;
 #X obj 558 325 getnbnotes;
-#X floatatom 558 346 5 0 0 0 - - -;
+#X floatatom 558 346 5 0 0 0 - - - 0;
 #X obj 119 304 clone noteplayer 2 PLAYER1;
 #X obj 340 315 mod 2;
 #X obj 18 29 l notebank 2 4 CollectionChantsCollectifs;
 #X obj 429 34 s reloadNotes;
-#X obj 429 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 429 15 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 18 9 l notebank 1 7 Ant1-wavtables;
 #X obj 16 56 notebank 1 7 Cyrvan;
 #X obj 16 75 notebank 2 7 Florentin;
@@ -103,9 +98,8 @@
 #X restore 26 371 pd notebanks;
 #N canvas 86 653 625 384 General 0;
 #X obj 26 94 getenv HOME;
-#X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X symbolatom 26 115 10 0 0 0 - - -;
+#X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X symbolatom 26 115 10 0 0 0 - - - 0;
 #X obj 245 179 s DATASDIR;
 #X obj 245 96 loadbang;
 #X obj 411 49 loadbang;
@@ -116,27 +110,23 @@
 #X msg 417 161 145;
 #X obj 426 108 loadbang;
 #X msg 386 127 1;
-#X obj 27 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
--1;
+#X obj 27 217 bng 15 250 50 0 empty empty empty 17 7 0 10 #fc0400 #000000 #000000;
 #X msg 134 573 symbol test1;
 #X obj 85 248 s /UNLOCKSNAP;
-#X obj 85 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 85 229 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 216 573 symbol test2;
 #X obj 134 594 s /SONG;
 #X obj 27 271 songMaster SONGS SETTINGS;
 #X obj 27 247 5clicks;
 #X msg 26 135 symbol \$1/Datas/Domozic/Baguettes;
 #N canvas 1 81 450 300 declares 0;
-#X obj 28 57 declare -stdpath iemlib -lib iemlib1;
 #X obj 29 80 declare -path ../domoTools/gammabs;
 #X obj 29 98 declare -path ../domoTools/domonet;
 #X obj 29 116 declare -path ../domoTools/notebank;
 #X obj 29 134 declare -path ../domoTools/effects;
 #X obj 29 153 declare -path ../domoTools/rhythmic;
 #X obj 29 171 declare -path ../domoTools/song;
-#X obj 27 28 declare -stdpath motex -path motex -lib motex -path ggee
--lib ggee -path moonlib -path AutoPreset;
+#X obj 28 30 declare -path zexy -lib zexy -path iemlib -lib iemlib -path motex -lib motex -path ggee -lib ggee -path moonlib -path AutoPreset;
 #X restore 27 9 pd declares;
 #X obj 245 135 getdir;
 #X msg 245 157 symbol \$1/WAVS;
@@ -163,8 +153,7 @@
 #X connect 24 0 3 0;
 #X connect 26 0 1 0;
 #X restore 24 58 pd General;
-#X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 126 123 s LEDROUGE;
 #X obj 196 60 r BOUTONROUGE;
 #X obj 196 81 == 0;
@@ -222,8 +211,7 @@
 #X obj 387 326 *~ 2;
 #X obj 387 305 osc~ 6;
 #X obj 455 55 metro 20;
-#X obj 455 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X obj 455 35 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 453 12 loadbang;
 #X obj 469 124 t f f;
 #X obj 470 152 -;
@@ -237,8 +225,7 @@
 #X obj 470 194 * 2;
 #X msg 65 441 set NT-1-6;
 #X msg 82 411 set NT-1-\$1;
-#X obj 81 372 hradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+#X obj 81 372 hradio 15 1 0 6 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 0;
 #X obj 81 392 + 1;
 #X obj 156 283 *~ 0.5;
 #X obj 196 440 *~ 0.3;
@@ -336,11 +323,10 @@
 #X msg 263 131 \$1 20;
 #X obj 263 152 line~;
 #X obj 135 121 *~;
-#X obj 322 80 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6350 1;
+#X obj 322 80 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 379 36 loadbang;
 #X msg 379 57 0.5;
-#X floatatom 326 151 5 0 0 0 - - -;
+#X floatatom 326 151 5 0 0 0 - - - 0;
 #X obj 263 110 pow 2;
 #X obj 134 93 hip~ 30;
 #X connect 0 0 3 1;
@@ -364,10 +350,9 @@
 #N canvas 446 382 754 596 testCOLOR 0;
 #X obj 91 18 r COLOR;
 #X obj 274 59 unpack f f f f;
-#X floatatom 403 68 5 0 0 0 - - -;
+#X floatatom 403 68 5 0 0 0 - - - 0;
 #X obj 355 104 change;
-#X obj 368 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 368 134 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 49 122 \$1 \$2 \$3;
 #X obj 49 143 unpack f f f;
 #X obj 83 165 +;
@@ -441,16 +426,15 @@
 #X obj 614 205 list split 3;
 #X obj 614 236 RGBtoHue;
 #X obj 614 257 HuetoRGB;
-#X floatatom 578 257 5 0 0 0 - - -;
+#X floatatom 578 257 5 0 0 0 - - - 0;
 #X obj 624 316 viewColor;
 #X obj 38 431 tabosc4~ NT-1-1;
 #X msg 126 380 set NT-1-\$1;
-#X obj 108 336 hradio 15 1 0 7 empty empty empty 0 -8 0 10 -262144
--1 -1 6;
+#X obj 108 336 hradio 15 1 0 7 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 0;
 #X obj 125 361 + 1;
 #X obj 676 247 s COLORNORM;
 #X obj 535 540 i;
-#X floatatom 535 561 5 0 0 0 - - -;
+#X floatatom 535 561 5 0 0 0 - - - 0;
 #X obj 677 226 s COLORHUE;
 #X obj 537 466 r COLORHUE;
 #X obj 537 497 / 360;
@@ -560,15 +544,13 @@
 #X obj 262 296 l Bruits BRUIT 2;
 #X obj 262 316 l Chants CHANT 3;
 #X obj 262 336 l Percu PERCU 4;
-#N canvas 527 140 696 329 notes-ctl 1;
+#N canvas 527 140 696 329 notes-ctl 0;
 #X text 108 46 couleur=note;
 #X text 107 68 ruban: taux/frequences d'harmoniques;
 #X text 180 213 solo: timbre transpo vibrato;
-#X text 107 91 select: arpege=phrase solo=nappe=étalement/retard/fausseté/vibrato
-, f 73;
+#X text 107 91 select: arpege=phrase solo=nappe=étalement/retard/fausseté/vibrato, f 73;
 #X text 108 138 speed: arpege=vitesse solo=nappe=vibrato;
-#X text 104 22 accelero: gauche=reverb droite=echo haut/bas: longueur
-reverb/echo + select AEIOU, f 82;
+#X text 104 22 accelero: gauche=reverb droite=echo haut/bas: longueur reverb/echo + select AEIOU, f 82;
 #X text 109 114 effet: timbre \, disto \, filtre \, flanger;
 #X restore 210 155 pd notes-ctl;
 #X obj 168 237 Aspi ASPI;
