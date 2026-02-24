@@ -51,7 +51,7 @@
 #X obj 332 225 lop~ 0.5;
 #X obj 32 273 mtof~;
 #X obj 332 248 *~ 20;
-#X obj 32 216 pack f 15;
+#X obj 32 216 pack f 10;
 #X connect 0 0 49 0;
 #X connect 1 0 22 0;
 #X connect 2 0 42 0;

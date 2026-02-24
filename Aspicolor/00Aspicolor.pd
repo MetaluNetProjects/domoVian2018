@@ -1,4 +1,4 @@
-#N canvas 118 276 402 463 10;
+#N canvas 179 110 402 518 10;
 #X declare -path ../domoTools/gammabs;
 #X declare -path ../domoTools/domonet;
 #X declare -path ../domoTools/notebank;
@@ -18,8 +18,8 @@
 #X floatatom 102 203 5 0 0 0 - - - 0;
 #X obj 25 105 route list;
 #X obj 126 61 r TEMPOLED;
-#X obj 25 230 GAMMEKBV /GAMME;
-#X obj 25 294 GAMMEKBV /CHORD;
+#X obj 28 295 GAMMEKBV /GAMME;
+#X obj 28 359 GAMMEKBV /CHORD;
 #N canvas 794 320 718 455 notebanks 0;
 #X obj 274 181 s NOTEBANK-LOADTABLES;
 #X obj 301 159 s NOTEBANK-DATASDIR;
@@ -96,8 +96,8 @@
 #X connect 31 0 11 1;
 #X connect 31 0 13 0;
 #X connect 34 0 33 0;
-#X restore 26 371 pd notebanks;
-#N canvas 86 653 625 384 General 0;
+#X restore 29 427 pd notebanks;
+#N canvas 100 611 643 323 General 0;
 #X obj 26 94 getenv HOME;
 #X obj 245 117 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X symbolatom 26 115 10 0 0 0 - - - 0;
@@ -133,6 +133,8 @@
 #X msg 245 157 symbol \$1/WAVS;
 #X obj 27 31 domonet Aspicolor;
 #X obj 307 94 r reloadNotes;
+#X obj 540 183 s /DODECA;
+#X msg 540 163 4095;
 #X connect 0 0 2 0;
 #X connect 1 0 23 0;
 #X connect 2 0 21 0;
@@ -142,6 +144,7 @@
 #X connect 10 0 9 0;
 #X connect 11 0 10 0;
 #X connect 11 0 8 0;
+#X connect 11 0 28 0;
 #X connect 12 0 9 0;
 #X connect 12 0 7 0;
 #X connect 13 0 20 0;
@@ -153,11 +156,12 @@
 #X connect 23 0 24 0;
 #X connect 24 0 3 0;
 #X connect 26 0 1 0;
+#X connect 28 0 27 0;
 #X restore 24 58 pd General;
 #X obj 126 82 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 126 123 s LEDROUGE;
-#X obj 196 60 r BOUTONROUGE;
-#X obj 196 81 == 0;
+#X obj 219 79 r BOUTONROUGE;
+#X obj 219 100 == 0;
 #X obj 126 102 spigot 1, f 12;
 #N canvas 76 107 764 504 testPP 0;
 #X obj 201 48 r PP_POS;
@@ -349,7 +353,7 @@
 #X connect 16 0 10 0;
 #X restore 23 15 pd MASTER;
 #N canvas 446 382 754 596 testCOLOR 0;
-#X obj 91 18 r COLOR;
+#X obj 88 11 r COLOR;
 #X obj 274 59 unpack f f f f;
 #X floatatom 403 68 5 0 0 0 - - - 0;
 #X obj 355 104 change;
@@ -443,6 +447,7 @@
 #X obj 537 518 * 6;
 #X obj 504 50 switch~;
 #X obj 654 280 r COLORNORM;
+#X listbox 437 204 20 0 0 0 - - - 0;
 #X connect 1 3 64 0;
 #X connect 3 0 4 0;
 #X connect 5 0 6 0;
@@ -501,6 +506,7 @@
 #X connect 46 3 1 0;
 #X connect 46 3 45 0;
 #X connect 46 3 75 0;
+#X connect 46 3 94 0;
 #X connect 48 0 49 0;
 #X connect 49 0 50 0;
 #X connect 50 0 80 0;
@@ -540,7 +546,6 @@
 #X connect 89 0 91 0;
 #X connect 90 0 48 0;
 #X connect 91 0 85 0;
-#X connect 93 0 79 0;
 #X restore 258 408 pd testCOLOR;
 #X obj 262 296 l Bruits BRUIT 2;
 #X obj 262 316 l Chants CHANT 3;
@@ -556,7 +561,8 @@
 #X restore 210 155 pd notes-ctl;
 #X obj 168 237 Aspi ASPI;
 #X obj 262 275 l Orchestre ORCH 1;
-#X obj 20 417 declare -path iemlib;
+#X obj 28 465 declare -path iemlib;
+#X obj 28 230 GAMMEKBV /DODECA;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 3 0 5 0;
@@ -565,5 +571,4 @@
 #X connect 9 0 14 0;
 #X connect 14 0 18 0;
 #X connect 16 0 17 0;
-#X connect 17 0 18 1;
 #X connect 18 0 15 0;

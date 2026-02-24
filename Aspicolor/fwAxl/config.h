@@ -20,8 +20,10 @@
 // VNH2 :
 #define MODESW1		MB1
 #define MODESW2 	MBEN
-//#define PEDAL3	MBPWM // K9
-//#define PEDAL4 	MOTB_CURRENT // K10
+
+#define MINMAXSW1	MBPWM // K9
+#define MINMAXSW2 	MOTB_CURRENT // K10
+
 //#define PEDAL2 	MBEN2
 //#define PEDAL1 	MB2
 //	 				VDD

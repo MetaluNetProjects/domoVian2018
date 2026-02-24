@@ -26,7 +26,7 @@ void APDS9960setup()
 	APDS9960setADCGain(APDS9960_AGAIN_64X);
 	APDS9960setADCIntegrationTime(10);
 	APDS9960enableProximity(1);
-	APDS9960setProxGain(APDS9960_PGAIN_4X);
+	APDS9960setProxGain(APDS9960_PGAIN_8X);
 	//APDS9960enableGesture(1);
 	//APDS9960setGestureGain(APDS9960_GGAIN_2);
 }
@@ -41,22 +41,24 @@ void setup(void) {
 
 //----------- Analog setup ----------------
 	analogInit();		// init analog module	
-	analogSelect(3,POT1);
-	analogSelect(4,POT2);
-	analogSelect(5,POT3);
-	analogSelect(6,POT4);
+	analogSelect(3, POT1);
+	analogSelect(4, POT2);
+	analogSelect(5, POT3);
+	analogSelect(6, POT4);
 
-	analogSelect(PRESSPOS_D2CHAN,PRESSPOS_D2);
-	analogSelect(PRESSPOS_SLCHAN,PRESSPOS_SL);
-	analogSelect(PRESSPOS_SLCHAN2,PRESSPOS_SL);
+	analogSelect(PRESSPOS_D2CHAN, PRESSPOS_D2);
+	analogSelect(PRESSPOS_SLCHAN, PRESSPOS_SL);
+	analogSelect(PRESSPOS_SLCHAN2, PRESSPOS_SL);
 	pinModeDigitalOut(PRESSPOS_D1);
 	digitalSet(PRESSPOS_D1);
 	
 	switchInit();
 	INTCON2bits.RBPU = 0; // enable pullups on PORTB
-	switchSelect(0,SWITCH);
-	switchSelect(1,MODESW1);
-	switchSelect(2,MODESW2);
+	switchSelect(0, SWITCH);
+	switchSelect(1, MODESW1);
+	switchSelect(2, MODESW2);
+	switchSelect(3, MINMAXSW1);
+	switchSelect(4, MINMAXSW2);
 
 //----------- setup I2C master ----------------
 	i2cm_init(I2C_MASTER, I2C_SLEW_ON, FOSC/400000/4-1);
@@ -87,7 +89,7 @@ void analogChannelConfig(unsigned char chan) {
 #define SETBUF(buf, i, v) do{ buf[i] = v>>8 ; buf[i+1] = v&255;} while(0)
 void APDS9960_service()
 {
-	//unsigned char gesture = 0;
+	unsigned char gesture = 0;
 	unsigned char buf[12];
 	if(APDS9960colorDataReady()) {
 		APDS9960getColorData(&colR, &colG, &colB, &colC);
@@ -101,14 +103,14 @@ void APDS9960_service()
 		buf[11] = '\n';
 		fraiseSend(buf, 12);
 	}
-	/*gesture = APDS9960readGesture();
+	gesture = APDS9960readGesture();
 	if(gesture) {
 		buf[0] = 'B';
 		buf[1] = 11;
 		buf[2] = gesture;
 		buf[3] = '\n';
 		fraiseSend(buf, 4);
-	}*/
+	}
 }
 
 void loop() {
