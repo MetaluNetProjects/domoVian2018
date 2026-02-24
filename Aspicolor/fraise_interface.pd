@@ -562,6 +562,8 @@
 #X obj 137 632 s BOUTONMINMAX;
 #X floatatom 233 633 5 0 0 0 - - - 0;
 #X listbox 528 571 29 0 0 0 - - - 0;
+#X obj 258 497 loadbang;
+#X msg 258 523 0;
 #X connect 6 0 7 0;
 #X connect 7 0 91 0;
 #X connect 7 1 8 0;
@@ -650,3 +652,5 @@
 #X connect 95 1 94 1;
 #X connect 96 0 97 0;
 #X connect 96 0 98 0;
+#X connect 100 0 101 0;
+#X connect 101 0 80 0;
